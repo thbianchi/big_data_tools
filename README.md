@@ -29,9 +29,9 @@ Ambiente para estudo dos principais frameworks big data em docker.
         ex: /home/user/docker
 
 #### Em um terminal/DOS, dentro diretório docker, realizar o clone do projeto no github
-          git clone https://github.com/fabiogjardim/bigdata_docker.git
+          git clone https://github.com/thbianchi/big_data_tools.git
 
-#### No diretório bigdata_docker vai existir os seguintes objetos
+#### No diretório big_data_tools vai existir os seguintes objetos
 ![ls](ls.JPG)
 
    *  No Windows:
@@ -39,7 +39,7 @@ Ambiente para estudo dos principais frameworks big data em docker.
       *Abrir o Docker Quickstart Terminal, isso fará com que a VM default seja criada no VirtualBox*
       ![ls](dockertoolbox.jpg)  
 
-      *No DOS, dentro do diretório bigdata_docker, renomear o arquivo docker-compose_windows.yml para docker-compose.yml*
+      *No DOS, dentro do diretório big_data_tools, renomear o arquivo docker-compose_windows.yml para docker-compose.yml*
 
             move docker-compose_windows.yml docker-compose.yml
       *Executar o arquivo virtualbox_config.bat*
@@ -52,7 +52,7 @@ Ambiente para estudo dos principais frameworks big data em docker.
    
   *No Windows abrir o Docker Quickstart Terminal, do Linux um terminal*
 
-### No terminal, no diretorio bigdata_docker, executar o docker-compose
+### No terminal, no diretorio big_data_tools, executar o docker-compose
           docker-compose up -d        
 
 ### Verificar imagens e containers
@@ -155,10 +155,6 @@ Ambiente para estudo dos principais frameworks big data em docker.
     Usuário: root
     Senha: root
     Authentication Database: admin
-
-## Imagens   
-
-[Docker Hub](https://hub.docker.com/u/fjardim)
 
 ## Documentação Oficial
 
