@@ -97,7 +97,7 @@ services:
     volumes:
       - ./data/hue/hue-overrides.ini:/usr/share/hue/desktop/conf/z-hue.ini
     depends_on:
-      - "database"
+      - database_hue
     deploy:
       resources:
         limits:
@@ -108,7 +108,7 @@ services:
     container_name: ranger-admin
     hostname: ranger
     depends_on:
-      - "database"
+      - database_ranger
     volumes:
       - ./data/ranger/admin/bootstrap.sh:/opt/ranger_admin/bootstrap.sh
       - ./data/ranger/admin/install.properties:/opt/ranger_admin/install.properties
@@ -129,6 +129,21 @@ services:
     command: ["./bootstrap.sh"]
     restart: always
 
+  database_ranger:
+    image: mysql:5.7
+    volumes:
+      - ./data/ranger/mysql:/var/lib/mysql
+    restart: always
+    ports:
+      - "33062:3306"
+    container_name: ranger-db
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: ranger
+      MYSQL_USER: ranger
+      MYSQL_PASSWORD: ranger
+
+
   es:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
     container_name: ranger-es
@@ -141,7 +156,7 @@ services:
     ports:
       - 9200:9200
   
-  database:
+  database_hue:
     image: fjardim/mysql
     container_name: database
     hostname: database
