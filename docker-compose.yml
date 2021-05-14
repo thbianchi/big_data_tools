@@ -103,7 +103,19 @@ services:
         limits:
           memory: 500m
 
-
+  ranger-admin:
+    image: kadensungbincho/ranger-admin:2.1.0
+    container_name: ranger-admin
+    hostname: ranger
+    depends_on:
+      - "database"
+    volumes:
+      - ./data/ranger/bootstrap.sh:/opt/ranger_admin/bootstrap.sh
+      - ./data/ranger/install.properties:/opt/ranger_admin/install.properties
+    command: ["./bootstrap.sh"]
+    ports:
+      - "6080:6080"
+    restart: always
   
   database:
     image: fjardim/mysql
