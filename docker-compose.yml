@@ -131,6 +131,7 @@ services:
 
   database_ranger:
     image: mysql:5.7
+    hostname: database_ranger
     volumes:
       - ./data/ranger/mysql:/var/lib/mysql
     restart: always
