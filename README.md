@@ -1,4 +1,41 @@
 
+# Tools list
+
+ - [*] Apache Impala			
+ - [*] Apache Kudu			
+ - [*] Apache Solr			
+ - [*] Apache Knox			
+ - [*] Apache Avro			
+ - [*] Apache Ranger			
+ - [*] Apache Atlas			
+ - [*] Apache Parquet			
+ - [-] Apache Ozone			
+ - [-] Key Trustee Server		
+ - [-] Schema Registry			
+ - [-] Apache Livy			
+ - [-] Ranger KMS			
+ - [-] Apache Zeppelin			
+ - [-] Cloudera Manager		
+ - [-] Apache ORC			
+ - [-] Apache Tez			
+ - [-] Apache Druid			
+ - [-] Apache Oozie			
+ - [-] Apache Accumulo			
+ - [-] Apache Phoenix			
+ - [x] Apache Spark			
+ - [x] Apache Sqoop			
+ - [x] YARN				
+ - [x] Apache Zookeeper		
+ - [x] Apache Hadoop			
+ - [x] Apache HBase +conn, +indx	
+ - [x] Apache Hive			
+ - [x] Hive Metastore (HMS)		
+ - [x] Hue				
+ - [x] Apache Kafka			
+ - [x] Kafka Connect			
+ - [x] Kafka Streams			
+
+
 # BIG DATA ECOSYSTEM COM DOCKER
 
 Ambiente para estudo dos principais frameworks big data em docker.
