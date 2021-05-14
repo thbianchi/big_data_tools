@@ -87,6 +87,19 @@ services:
         limits:
           memory: 500m
 
+  atlas-server:
+    build: ./data/atlas
+    image: wbaa/rokku-dev-apache-atlas
+    container_name: atlas-server
+    hostname: atlas-server
+    volumes:
+      - .data//atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
+    ports:
+      - "21000:21000"
+    depends_on:
+      - zookeeper
+      - kafka
+
   hue:
     image: fjardim/hue
     hostname: hue
