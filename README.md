@@ -9,19 +9,19 @@
  - [*] Apache Ranger			
  - [*] Apache Atlas			
  - [*] Apache Parquet			
- - [-] Apache Ozone			
- - [-] Key Trustee Server		
- - [-] Schema Registry			
- - [-] Apache Livy			
- - [-] Ranger KMS			
- - [-] Apache Zeppelin			
- - [-] Cloudera Manager		
- - [-] Apache ORC			
- - [-] Apache Tez			
- - [-] Apache Druid			
- - [-] Apache Oozie			
- - [-] Apache Accumulo			
- - [-] Apache Phoenix			
+ - [ ] Apache Ozone			
+ - [ ] Key Trustee Server		
+ - [ ] Schema Registry			
+ - [ ] Apache Livy			
+ - [ ] Ranger KMS			
+ - [ ] Apache Zeppelin			
+ - [ ] Cloudera Manager		
+ - [ ] Apache ORC			
+ - [ ] Apache Tez			
+ - [ ] Apache Druid			
+ - [ ] Apache Oozie			
+ - [ ] Apache Accumulo			
+ - [ ] Apache Phoenix			
  - [x] Apache Spark			
  - [x] Apache Sqoop			
  - [x] YARN				
