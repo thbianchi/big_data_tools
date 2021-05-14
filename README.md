@@ -7,8 +7,7 @@
  - [*] Apache Knox			
  - [*] Apache Avro
  - [*] Apache Atlas			
- - [*] Apache Parquet			
- - [ ] Apache Ranger			
+ - [*] Apache Parquet				
  - [ ] Apache Ozone			
  - [ ] Key Trustee Server		
  - [ ] Schema Registry			
@@ -22,6 +21,7 @@
  - [ ] Apache Oozie			
  - [ ] Apache Accumulo			
  - [ ] Apache Phoenix			
+ - [x] Apache Ranger		
  - [x] Apache Spark			
  - [x] Apache Sqoop			
  - [x] YARN				
