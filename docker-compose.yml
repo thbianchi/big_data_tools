@@ -112,7 +112,7 @@ services:
     volumes:
       - ./data/ranger/bootstrap.sh:/opt/ranger_admin/bootstrap.sh
       - ./data/ranger/install.properties:/opt/ranger_admin/install.properties
-    command: ["./bootstrap.sh"]
+    command: ["./bootstrap1.sh"]
     ports:
       - "6080:6080"
     restart: always
