@@ -110,12 +110,36 @@ services:
     depends_on:
       - "database"
     volumes:
-      - ./data/ranger/bootstrap.sh:/opt/ranger_admin/bootstrap.sh
-      - ./data/ranger/install.properties:/opt/ranger_admin/install.properties
+      - ./data/ranger/admin/bootstrap.sh:/opt/ranger_admin/bootstrap.sh
+      - ./data/ranger/admin/install.properties:/opt/ranger_admin/install.properties
     command: ["./bootstrap.sh"]
     ports:
       - "6080:6080"
     restart: always
+
+  ranger-usersync:
+    image: kadensungbincho/ranger-usersync:2.1.0
+    container_name: ranger-usersync
+    hostname: usersync
+    depends_on:
+      - ranger-admin
+    volumes:
+      - ./data/ranger/usersync/bootstrap.sh:/opt/ranger_usersync/bootstrap.sh
+      - ./data/ranger/usersync/install.properties:/opt/ranger_usersync/install.properties
+    command: ["./bootstrap.sh"]
+    restart: always
+
+  es:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.5.0
+    container_name: ranger-es
+    environment:
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+      - "ELASTIC_PASSWORD=elasticsearch"
+    volumes:
+      - ./data/ranger/es:/usr/share/elasticsearch/data
+    ports:
+      - 9200:9200
   
   database:
     image: fjardim/mysql
