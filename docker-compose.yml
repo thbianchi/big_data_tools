@@ -93,7 +93,7 @@ services:
     container_name: atlas-server
     hostname: atlas-server
     volumes:
-      - .data//atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
+      - ./data/atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
     ports:
       - "21000:21000"
     depends_on:
