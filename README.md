@@ -5,10 +5,10 @@
  - [*] Apache Kudu			
  - [*] Apache Solr			
  - [*] Apache Knox			
- - [*] Apache Avro			
- - [*] Apache Ranger			
+ - [*] Apache Avro
  - [*] Apache Atlas			
  - [*] Apache Parquet			
+ - [ ] Apache Ranger			
  - [ ] Apache Ozone			
  - [ ] Key Trustee Server		
  - [ ] Schema Registry			
