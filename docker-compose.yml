@@ -341,3 +341,13 @@ services:
       resources:
         limits:
           memory: 1g
+
+  solr:
+    image: solr:latest
+    container_name: solr
+    ports:
+      - "8983:8983"
+    deploy:
+      resources:
+        limits:
+          memory: 200m

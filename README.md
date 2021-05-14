@@ -3,7 +3,6 @@
 
  - [*] Apache Impala			
  - [*] Apache Kudu			
- - [*] Apache Solr			
  - [*] Apache Knox			
  - [*] Apache Avro
  - [*] Apache Atlas			
@@ -21,6 +20,7 @@
  - [ ] Apache Oozie			
  - [ ] Apache Accumulo			
  - [ ] Apache Phoenix			
+ - [x] Apache Solr			
  - [x] Apache Ranger		
  - [x] Apache Spark			
  - [x] Apache Sqoop			
