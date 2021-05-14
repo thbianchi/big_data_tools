@@ -87,26 +87,13 @@ services:
         limits:
           memory: 500m
 
-  atlas-server:
-    build: ./data/atlas
-    image: wbaa/rokku-dev-apache-atlas
-    container_name: atlas-server
-    hostname: atlas-server
-    volumes:
-      - ./data/atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
-    ports:
-      - "21000:21000"
-    depends_on:
-      - zookeeper
-      - kafka
-
   hue:
     image: fjardim/hue
     hostname: hue
     container_name: hue
     dns: 8.8.8.8
     ports:
-    - "8888:8888"
+      - "8888:8888"
     volumes:
       - ./data/hue/hue-overrides.ini:/usr/share/hue/desktop/conf/z-hue.ini
     depends_on:
@@ -115,6 +102,20 @@ services:
       resources:
         limits:
           memory: 500m
+
+  ranger-admin:
+    image: kadensungbincho/ranger-admin:2.1.0
+    container_name: ranger-admin
+    hostname: ranger
+    depends_on:
+      - "database"
+    volumes:
+      - ./data/ranger/bootstrap.sh:/opt/ranger_admin/bootstrap.sh
+      - ./data/ranger/install.properties:/opt/ranger_admin/install.properties
+    command: ["./bootstrap.sh"]
+    ports:
+      - "6080:6080"
+    restart: always
   
   database:
     image: fjardim/mysql
