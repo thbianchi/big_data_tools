@@ -4,8 +4,7 @@ services:
   namenode:
     container_name: namenode
     hostname: namenode
-    build: ./data/namenode
-    image: namenode22
+    image: bde2020/hadoop-namenode:2.0.0-hadoop2.7.4-java8
     volumes:
       - ./data/namenode:/hadoop/dfs/name
       #- ./data/namenode/install.properties:/opt/ranger-hdfs-plugin/install.properties
