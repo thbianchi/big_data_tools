@@ -2,35 +2,35 @@ version: '3'
 services:
 
   namenode:
-    image: fjardim/namenode_sqoop
     container_name: namenode
     hostname: namenode
+    build: ./data/namenode
+    image: namenode
     volumes:
-      - ./data/hdfs/namenode:/hadoop/dfs/name
+      - ./data/namenode:/hadoop/dfs/name
+      - ./data/namenode/install.properties:/opt/ranger-hdfs-plugin/install.properties
     environment:
       - CLUSTER_NAME=test
     env_file:
-      - ./data/hadoop/hadoop-hive.env
+      - ./hive/hadoop-hive.env
     ports:
       - "50070:50070"
+      - "8020:8020"
     deploy:
       resources:
         limits:
           memory: 500m
   
   datanode:
-    image: fjardim/datanode
     container_name: datanode
     hostname: datanode
+    image: bde2020/hadoop-datanode:2.0.0-hadoop2.7.4-java8
     volumes:
-      - ./data/hdfs/datanode:/hadoop/dfs/data
-      #- ./data/hadoop/bank:/bank
+      - ./data/datanode:/hadoop/dfs/data
     env_file:
-      - ./data/hadoop/hadoop-hive.env
+      - ./hive/hadoop-hive.env
     environment:
       SERVICE_PRECONDITION: "namenode:50070"
-    depends_on:
-      - namenode
     ports:
       - "50075:50075"
     deploy:
@@ -39,49 +39,42 @@ services:
           memory: 500m
   
   hive-server:
-    image: fjardim/hive
-    container_name: hive-server
-    hostname: hive_server
+    build: ./data/hive
+    image: hive-server
     env_file:
-      - ./data/hadoop/hadoop-hive.env
+      - ./data/hive/hadoop-hive.env
+    volumes:
+      - ./data/hive/atlas-application.properties:/opt/hive/conf/atlas-application.properties
+      - ./data/hive/hive-site.xml:/opt/hive/conf/hive-site.xml
+      - ./data/hive/hive-env.sh:/opt/hive/conf/hive-env.sh
+      - ./data/hive/atlas-hive-hook:/opt/atlas-hive-hook
+      - ./data/hive/install.properties:/opt/ranger-hive-plugin/install.properties
     environment:
       HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://hive-metastore/metastore"
       SERVICE_PRECONDITION: "hive-metastore:9083"
     ports:
       - "10000:10000"
-    depends_on:
-      - hive-metastore
     deploy:
       resources:
         limits:
           memory: 500m
   
   hive-metastore:
-    image: fjardim/hive
-    container_name: hive_metastore
-    hostname: hive_metastore
+    image: bde2020/hive:2.3.2-postgresql-metastore
     env_file:
-      - ./data/hadoop/hadoop-hive.env
+      - ./hive/hadoop-hive.env
     command: /opt/hive/bin/hive --service metastore
     environment:
       SERVICE_PRECONDITION: "namenode:50070 datanode:50075 hive-metastore-postgresql:5432"
     ports:
       - "9083:9083"
-    depends_on:
-      - hive-metastore-postgresql
     deploy:
       resources:
         limits:
           memory: 500m
   
   hive-metastore-postgresql:
-    image: fjardim/hive-metastore
-    container_name: hive-metastore-postgresql
-    hostname: hive_metastore_postgresql
-    volumes:
-      - ./data/postgresql:/var/lib/postgresql/data
-    depends_on:
-      - datanode
+    image: bde2020/hive-metastore-postgresql:2.3.0
     deploy:
       resources:
         limits:
@@ -192,18 +185,18 @@ services:
           memory: 500m
 
   kafka:
-    image: fjardim/kafka
     container_name: kafka
-    hostname: kafka
+    image: wurstmeister/kafka
     ports:
       - "9092:9092"
-    volumes:
-      - ./data/kafka:/kafka/kafka-logs-kafka
-    depends_on:
-      - zookeeper
+    hostname: kafka
     environment:
+      KAFKA_CREATE_TOPICS: "create_events:1:1,delete_events:1:1,ATLAS_HOOK:1:1"
       KAFKA_ADVERTISED_HOST_NAME: kafka
+      KAFKA_ADVERTISED_PORT: 9092
       KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    depends_on:
+      - zookeeper 
     deploy:
       resources:
         limits:
@@ -351,3 +344,14 @@ services:
       resources:
         limits:
           memory: 200m
+
+  atlas-server:
+    build: ./data/atlas
+    image: wbaa/rokku-dev-apache-atlas
+    volumes:
+      - ./data/atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
+    ports:
+      - "21000:21000"
+    depends_on:
+      - "zookeeper"
+      - "kafka" 
