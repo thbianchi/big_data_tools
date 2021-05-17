@@ -359,6 +359,8 @@ services:
     container_name: airflow-redis
     depends_on:
       - nifi
+      - ranger-admin
+      - datanode
 
   webserver:
     image: puckel/docker-airflow:1.10.9
