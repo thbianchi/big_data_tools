@@ -351,6 +351,7 @@ services:
     container_name: atlas-server
     #build: ./data/atlas
     #image: wbaa/rokku-dev-apache-atlas
+    command: ["/opt/apache-atlas-2.1.0/bin/atlas_start.py"]
     volumes:
       - ./data/atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
     ports:
