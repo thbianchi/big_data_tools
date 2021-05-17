@@ -48,7 +48,7 @@ echo **** MAPEANDO PORTAS DE REDE
 echo *****************************************
 VBoxManage.exe modifyvm default --natpf1 "namenode,tcp,,50070,,50070"
 VBoxManage.exe modifyvm default --natpf1 "datanode,tcp,,50075,,50075"
-VBoxManage.exe modifyvm default --natpf1 "presto,tcp,,8181,,8181"
+VBoxManage.exe modifyvm default --natpf1 "presto,tcp,,8080,,8080"
 VBoxManage.exe modifyvm default --natpf1 "hbase-master,tcp,,16010,,16010"
 VBoxManage.exe modifyvm default --natpf1 "hbase-regionserver,tcp,,16030,,16030"
 VBoxManage.exe modifyvm default --natpf1 "mongo,tcp,,27017,,27017"
