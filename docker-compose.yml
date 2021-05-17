@@ -346,7 +346,7 @@ services:
           memory: 200m
 
   atlas-server:
-    hot_name: atlas-server
+    host_name: atlas-server
     container_name: atlas-server
     build: ./data/atlas
     image: wbaa/rokku-dev-apache-atlas
