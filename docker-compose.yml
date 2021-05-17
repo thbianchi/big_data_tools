@@ -352,7 +352,7 @@ services:
         limits:
           memory: 200m
 
-  #### NOVOS
+  #### Airflow 
   redis:
     image: 'redis:5.0.5'
     command: redis-server --requirepass redispass
