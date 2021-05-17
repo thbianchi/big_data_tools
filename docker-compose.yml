@@ -5,7 +5,7 @@ services:
     container_name: namenode
     hostname: namenode
     build: ./data/namenode
-    image: namenode
+    image: namenode22
     volumes:
       - ./data/namenode:/hadoop/dfs/name
       - ./data/namenode/install.properties:/opt/ranger-hdfs-plugin/install.properties
