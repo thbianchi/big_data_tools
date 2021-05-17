@@ -380,7 +380,7 @@ services:
     healthcheck:
       test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
       interval: 30s
-      timeout: 30s
+      timeout: 90s
       retries: 3
 
   flower:
