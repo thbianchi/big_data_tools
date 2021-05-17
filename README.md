@@ -133,7 +133,7 @@ Ambiente para estudo dos principais frameworks big data em docker.
 ## Acesso WebUI dos Frameworks
  
 * HDFS *http://localhost:50070*
-* Presto *http://localhost:8080*
+* Presto *http://localhost:8181*
 * Hbase *http://localhost:16010/master-status*
 * Mongo Express *http://localhost:8081*
 * Kafka Manager *http://localhost:9000*
