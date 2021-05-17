@@ -131,6 +131,8 @@ services:
 
   database_ranger:
     image: mysql:5.7
+    depends_on:
+      - nifi
     hostname: database_ranger
     volumes:
       - ./data/ranger/mysql:/var/lib/mysql
