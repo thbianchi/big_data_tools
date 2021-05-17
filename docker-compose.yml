@@ -346,10 +346,11 @@ services:
           memory: 200m
 
   atlas-server:
+    image: sburn/apache-atlas
     hostname: atlas-server
     container_name: atlas-server
-    build: ./data/atlas
-    image: wbaa/rokku-dev-apache-atlas
+    #build: ./data/atlas
+    #image: wbaa/rokku-dev-apache-atlas
     volumes:
       - ./data/atlas/resources/1000-Hadoop:/opt/atlas/models/1000-Hadoop
     ports:
