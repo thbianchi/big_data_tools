@@ -8,7 +8,7 @@ services:
     image: namenode22
     volumes:
       - ./data/namenode:/hadoop/dfs/name
-      - ./data/namenode/install.properties:/opt/ranger-hdfs-plugin/install.properties
+      #- ./data/namenode/install.properties:/opt/ranger-hdfs-plugin/install.properties
     environment:
       - CLUSTER_NAME=test
     env_file:
