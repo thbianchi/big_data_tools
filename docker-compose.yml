@@ -356,9 +356,13 @@ services:
   redis:
     image: 'redis:5.0.5'
     command: redis-server --requirepass redispass
+    container_name: airflow-redis
+    depends_on:
+      - nifi
 
   webserver:
     image: puckel/docker-airflow:1.10.9
+    container_name: airflow-webserver
     restart: always
     depends_on:
       - redis
@@ -385,6 +389,7 @@ services:
 
   flower:
     image: puckel/docker-airflow:1.10.9
+    container_name: airflow-flower
     restart: always
     depends_on:
       - redis
@@ -397,6 +402,7 @@ services:
 
   scheduler:
     image: puckel/docker-airflow:1.10.9
+    container_name: airflow-scheduler
     restart: always
     depends_on:
       - webserver
@@ -416,6 +422,7 @@ services:
 
   worker:
     image: puckel/docker-airflow:1.10.9
+    container_name: airflow-worker
     restart: always
     depends_on:
       - scheduler
