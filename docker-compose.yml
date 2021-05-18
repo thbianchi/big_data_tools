@@ -370,7 +370,7 @@ services:
     container_name: airflow-webserver
     restart: always
     depends_on:
-        - postgres
+        - airflow-postgres
     environment:
         - LOAD_EX=n
         - EXECUTOR=Local
