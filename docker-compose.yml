@@ -394,3 +394,6 @@ services:
     image: nathanhowell/parquet-tools:latest
     container_name: parquet-tools
 
+  avro_tools:
+    image: brandonstubbs/avro-tools
+    container_name: avro-tools
