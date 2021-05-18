@@ -353,7 +353,7 @@ services:
           memory: 200m
 
   #### Airflow 
-  airflow-postgres:
+  postgres:
     image: postgres:9.6
     container_name: airflow-postgres
     environment:
@@ -365,12 +365,12 @@ services:
             max-size: 10m
             max-file: "3"
 
-  airflow-webserver:
+  webserver:
     image: puckel/docker-airflow:1.10.9
     container_name: airflow-webserver
     restart: always
     depends_on:
-        - airflow-postgres
+        - postgres
     environment:
         - LOAD_EX=n
         - EXECUTOR=Local
