@@ -359,7 +359,7 @@ services:
     container_name: airflow-redis
 
   airflow-webserver:
-    image: puckel/docker-airflow:1.10.9
+    image: thbianchi/docker-airflow:1.10.9
     container_name: airflow-webserver
     restart: always
     depends_on:
@@ -377,7 +377,7 @@ services:
       # Uncomment to include custom plugins
       - ./data/airflow/data/plugins:/usr/local/airflow/plugins
     ports:
-      - "8080:8181"
+      - "8181:8181"
     command: webserver
     healthcheck:
       test: ["CMD-SHELL", "[ -f /usr/local/airflow/airflow-webserver.pid ]"]
@@ -386,7 +386,7 @@ services:
       retries: 3
 
   airflow-flower:
-    image: puckel/docker-airflow:1.10.9
+    image: thbianchi/docker-airflow:1.10.9
     container_name: airflow-flower
     restart: always
     depends_on:
@@ -399,7 +399,7 @@ services:
     command: flower
 
   airflow-scheduler:
-    image: puckel/docker-airflow:1.10.9
+    image: thbianchi/docker-airflow:1.10.9
     container_name: airflow-scheduler
     restart: always
     depends_on:
@@ -419,7 +419,7 @@ services:
     command: scheduler
 
   airflow-worker:
-    image: puckel/docker-airflow:1.10.9
+    image: thbianchi/docker-airflow:1.10.9
     container_name: airflow-worker
     restart: always
     depends_on:
