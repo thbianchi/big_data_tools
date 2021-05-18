@@ -131,8 +131,6 @@ services:
 
   database_ranger:
     image: mysql:5.7
-    depends_on:
-      - nifi
     hostname: database_ranger
     volumes:
       - ./data/ranger/mysql:/var/lib/mysql
@@ -359,10 +357,6 @@ services:
     image: 'redis:5.0.5'
     command: redis-server --requirepass redispass
     container_name: airflow-redis
-    depends_on:
-      - nifi
-      - ranger-admin
-      - datanode
 
   webserver:
     image: puckel/docker-airflow:1.10.9
