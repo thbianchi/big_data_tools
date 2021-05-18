@@ -5,7 +5,6 @@
  - [*] Apache Kudu			
  - [*] Apache Knox			
  - [*] Apache Avro
- - [*] Apache Atlas			
  - [ ] Apache Ozone			
  - [ ] Key Trustee Server		
  - [ ] Schema Registry			
@@ -18,7 +17,8 @@
  - [ ] Apache Druid			
  - [ ] Apache Oozie			
  - [ ] Apache Accumulo			
- - [ ] Apache Phoenix			
+ - [ ] Apache Phoenix
+ - [x] Apache Atlas
  - [x] Apache Solr			
  - [x] Apache Ranger		
  - [x] Apache Spark			
