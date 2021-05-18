@@ -33,7 +33,8 @@
  - [x] Hue				
  - [x] Apache Kafka			
  - [x] Kafka Connect			
- - [x] Kafka Streams			
+ - [x] Kafka Streams
+ - [x] Apache Airflow			
 
 ## SOFTWARES NECESSÁRIOS
 #### Para a criação e uso do ambiente vamos utilizar git e docker
@@ -90,6 +91,7 @@
 * Jupyter Spark *http://localhost:8889*
 * Hue *http://localhost:8888*
 * Spark *http://localhost:4040*
+* Airflow *http://localhost:8181*
 
 ## Acesso por shell
 
