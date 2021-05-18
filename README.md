@@ -33,16 +33,8 @@
  - [x] Hue				
  - [x] Apache Kafka			
  - [x] Kafka Connect			
- - [x] Kafka Streams			
-
-
-# BIG DATA ECOSYSTEM COM DOCKER
-
-Ambiente para estudo dos principais frameworks big data em docker.
-<br> Esse setup vai criar dockers com os frameworks HDFS, HBase, Hive, Presto, Spark, Jupyter, Hue, Mongodb, Metabase, Nifi, kafka, Mysql e Zookeeper com a seguinte arquitetura:
-<br>  
-
-![Ecossistema](ecosystem.jpeg)
+ - [x] Kafka Streams
+ - [x] Apache Airflow			
 
 ## SOFTWARES NECESSÁRIOS
 #### Para a criação e uso do ambiente vamos utilizar git e docker
@@ -51,43 +43,8 @@ Ambiente para estudo dos principais frameworks big data em docker.
    
 *OBS: Existe um git na instação do Docker ToolBox, caso já tenha instalado não precisa instalar novamente*
 
-## SETUP
-*OBS: Esse passo deve ser realizado apena uma vez. Após o ambiente criado, utilizar o docker-compose para iniciar os containers como mostrado no tópico INICIANDO O AMBIENTE*
-
-#### Criação do diretório docker:
-*OBS: A criação do diretório é importante para os mapeamentos necessários*
-
-   *  No Windows:
-      *  Criar na raiz do seu drive o diretório docker
-         ex: C:\docker
-          
-   * No Linux:
-      * Criar o diretório na home do usuário
-        ex: /home/user/docker
-
 #### Em um terminal/DOS, dentro diretório docker, realizar o clone do projeto no github
-          git clone https://github.com/thbianchi/big_data_tools.git
-
-#### No diretório big_data_tools vai existir os seguintes objetos
-![ls](ls.JPG)
-
-   *  No Windows:
-   
-      *Abrir o Docker Quickstart Terminal, isso fará com que a VM default seja criada no VirtualBox*
-      ![ls](dockertoolbox.jpg)  
-
-      *No DOS, dentro do diretório big_data_tools, renomear o arquivo docker-compose_windows.yml para docker-compose.yml*
-
-            move docker-compose_windows.yml docker-compose.yml
-      *Executar o arquivo virtualbox_config.bat*
-         <br><i>O arquivo bat cria/reacria a VM default com disco de até 100GB, 8GB de memória, drive do repo compartilhado como /d e todas as portas necessárias mapeadas</i></br>
-         <br><i>OBS: se o ser driver raiz for diferente de C:, alterar o arquivo virutalbox_config.bat na parte indicada no comentário. A memória também pode ser alterada no local indicado.</i></br>  
-![ls](bat.jpg)         
-   *  No Linux: *Não é necessário alterar nem executar nada*
-
-## INICIANDO O AMBIENTE
-   
-  *No Windows abrir o Docker Quickstart Terminal, do Linux um terminal*
+   git clone https://github.com/thbianchi/big_data_tools.git
 
 ### No terminal, no diretorio big_data_tools, executar o docker-compose
           docker-compose up -d        
@@ -96,15 +53,7 @@ Ambiente para estudo dos principais frameworks big data em docker.
  
          docker image ls
 
-![docker image ls](docker_image_ls.JPG)
-
          docker container ls
-
-![docker container](docker_container_ls.JPG)
-
-## SOLUCIONANDO PROBLEMAS 
-   
-  *No Windows abrir o Docker Quickstart Terminal*
 
 ### Parar um containers
          docker stop [nome do container]      
@@ -142,6 +91,7 @@ Ambiente para estudo dos principais frameworks big data em docker.
 * Jupyter Spark *http://localhost:8889*
 * Hue *http://localhost:8888*
 * Spark *http://localhost:4040*
+* Airflow *http://localhost:8181*
 
 ## Acesso por shell
 
