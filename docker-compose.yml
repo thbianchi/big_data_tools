@@ -363,7 +363,7 @@ services:
     container_name: airflow-webserver
     restart: always
     depends_on:
-      - redis
+      - airflow-redis
     environment:
       - LOAD_EX=n
       - FERNET_KEY=46BKJoQYlPPOexq0OhDZnIlNepKFf87WFwLbfzqDDho=
@@ -390,7 +390,7 @@ services:
     container_name: airflow-flower
     restart: always
     depends_on:
-      - redis
+      - airflow-redis
     environment:
       - EXECUTOR=Celery
       - REDIS_PASSWORD=redispass
@@ -403,7 +403,7 @@ services:
     container_name: airflow-scheduler
     restart: always
     depends_on:
-      - webserver
+      - airflow-webserver
     volumes:
       - ./data/airflow/dags:/usr/local/airflow/dags
       # Uncomment to include custom plugins
@@ -423,7 +423,7 @@ services:
     container_name: airflow-worker
     restart: always
     depends_on:
-      - scheduler
+      - airflow-scheduler
     volumes:
       - ./data/airflow/dags:/usr/local/airflow/dags
       # Uncomment to include custom plugins
