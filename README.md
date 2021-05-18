@@ -6,7 +6,6 @@
  - [*] Apache Knox			
  - [*] Apache Avro
  - [*] Apache Atlas			
- - [*] Apache Parquet				
  - [ ] Apache Ozone			
  - [ ] Key Trustee Server		
  - [ ] Schema Registry			
@@ -35,6 +34,7 @@
  - [x] Kafka Connect			
  - [x] Kafka Streams
  - [x] Apache Airflow			
+ - [x] Apache Parquet				
 
 ## SOFTWARES NECESSÁRIOS
 #### Para a criação e uso do ambiente vamos utilizar git e docker
@@ -142,6 +142,12 @@
     Usuário: root
     Senha: root
     Authentication Database: admin
+
+## Parquet-tools
+
+	#### Running cat, head, schema, meta, dump, merge, rowcount, size, column-index
+
+		sudo docker run -t nathanhowell/parquet-tools
 
 ## Documentação Oficial
 
