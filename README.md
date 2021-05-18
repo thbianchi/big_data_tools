@@ -145,9 +145,8 @@
 
 ## Parquet-tools
 
-	#### Running cat, head, schema, meta, dump, merge, rowcount, size, column-index
-
-		sudo docker run -t nathanhowell/parquet-tools
+   ##### Running cat, head, schema, meta, dump, merge, rowcount, size, column-index
+    sudo docker run -t nathanhowell/parquet-tools
 
 ## Documentação Oficial
 
