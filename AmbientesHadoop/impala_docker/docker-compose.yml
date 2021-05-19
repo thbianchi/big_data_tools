@@ -2,11 +2,16 @@ version: '3'
 services:
   
   impala-server:
-    image: fedormalyshkin/cdh6-impala-kudu
+    build:
+      context: ./impala
+      dockerfile: Dockerfile      
+    image: ded/cdh6-impala-kudu
     hostname: impala-server
     container_name: impala-server
     ports:
       - "21050:21050"
+      - "9083:9083"
+      - "10000:10000"
 
   hue:
     image: fjardim/hue
