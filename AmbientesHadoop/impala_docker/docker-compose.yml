@@ -23,8 +23,8 @@ services:
 
   database_hue:
     image: fjardim/mysql
-    container_name: database
-    hostname: database
+    container_name: database_hue
+    hostname: database_hue
     ports:
         - "33061:3306"
     command: mysqld --innodb-flush-method=O_DSYNC --innodb-use-native-aio=OFF --init-file /data/application/init.sql
