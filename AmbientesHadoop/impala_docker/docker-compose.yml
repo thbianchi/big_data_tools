@@ -29,8 +29,8 @@ services:
         - "33061:3306"
     command: mysqld --innodb-flush-method=O_DSYNC --innodb-use-native-aio=OFF --init-file /data/application/init.sql
     volumes:
-        - ./mysql/data:/var/lib/mysql
-        - ./mysql/init.sql:/data/application/init.sql
+        - ./hue/mysql/data:/var/lib/mysql
+        - ./hue/mysql/init.sql:/data/application/init.sql
     environment:
         MYSQL_ROOT_USER: root
         MYSQL_ROOT_PASSWORD: secret
