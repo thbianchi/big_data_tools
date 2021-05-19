@@ -13,7 +13,10 @@ services:
     depends_on:
       - impala-server
 
-  impala-server:   
+  impala-server:
+    build:
+      dockerfile: Dockerfile
+      context: ./impala
     image: seqpipe/seqpipe-docker-impala
     hostname: impala-server
     container_name: impala-server

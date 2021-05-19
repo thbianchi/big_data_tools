@@ -1,9 +1,5 @@
-FROM fedormalyshkin/cdh6-impala-kudu
+FROM seqpipe/seqpipe-docker-impala
 
 EXPOSE 9083
+EXPOSE 5432
 EXPOSE 8020
-EXPOSE 10000
-EXPOSE 9864
-EXPOSE 9000 
-EXPOSE 50070 
-EXPOSE 50075
