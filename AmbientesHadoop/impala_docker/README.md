@@ -22,7 +22,7 @@
               LOCATION "hdfs:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/tips"
               TBLPROPERTIES("skip.header.line.count" = "1");'
 
-### Execute o comando abaixo para enviar o arquivo tips.csv paradentro do HDFS
+### Execute o comando abaixo para enviar o arquivo tips.csv para dentro do HDFS
          hdfs dfs -put /tmp/tips.csv /var/lib/hadoop-hdfs/cache/hdfs/dfs/data/tips/ 
 
 ## Usuários e senhas
