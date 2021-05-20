@@ -29,7 +29,6 @@ services:
     depends_on:
       - database_hue
       - impala-server
-      - hive-server
 
   database_hue:
     image: fjardim/mysql
