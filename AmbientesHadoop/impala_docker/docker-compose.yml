@@ -1,29 +1,21 @@
 version: '3' 
 services:
   
-  hive-server:
-    image: fjardim/hive
-    container_name: hive-server
-    hostname: hive_server
-    environment:
-      HIVE_CORE_CONF_javax_jdo_option_ConnectionURL: "jdbc:postgresql://impala-server/metastore"
-      SERVICE_PRECONDITION: "impala-server:9083"
-    ports:
-      - "10000:10000"
-    depends_on:
-      - impala-server
 
   impala-server:
-    build:
-      dockerfile: Dockerfile
-      context: ./impala
-    image: seqpipe/seqpipe-docker-impala
+    image: fedormalyshkin/cdh6-impala-kudu    
     hostname: impala-server
     container_name: impala-server
     ports:
-      - "9083:9083"
-      - "5432:5432"
-      - "8020:8020"
+      - "8050:8050"
+      - "8051:8051"
+      - "21000:21000"
+      - "21050:21050"
+      - "25000:25000"
+      - "25010:25010"
+      - "25020:25020"
+      - "50070:50070" 
+      - "50075:50075"
 
   hue:
     image: fjardim/hue
