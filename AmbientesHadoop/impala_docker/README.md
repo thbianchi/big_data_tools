@@ -1,28 +1,28 @@
 ## Carregar dados
-#### Para a criação e uso do ambiente vamos utilizar git e docker
+#### Introdução
    * O procedimento abaixo demostrará como carregar uma base no HDFS para ser utilizada nos testes do impala.
 
-### No terminal, no diretorio big_data_tools, executar o docker-compose
+### No terminal, no diretorio docker_impala, execute o comando abaixo para acessar o container
           docker-compose exec impala-server bash
 
-### Verificar imagens e containers 
+### Faça o download da base de exemplo "tips.csv"
          curl -L https://raw.githubusercontent.com/pandas-dev/pandas/master/doc/data/tips.csv -o /tmp/tips.csv
 
-### Parar um containers
+### Execute o comando abaixo para criar uma tabela
          impala-shell -q '
-  CREATE TABLE default.tips (
-    `total_bill` FLOAT,
-    `tip` FLOAT,
-    `sex` STRING,
-    `smoker` STRING,
-    `day` STRING,
-    `time` STRING,
-    `size` TINYINT)
-  ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
-  LOCATION "hdfs:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/tips"
-  TBLPROPERTIES("skip.header.line.count" = "1");'
+              CREATE TABLE default.tips (
+              `total_bill` FLOAT,
+              `tip` FLOAT,
+              `sex` STRING,
+              `smoker` STRING,
+              `day` STRING,
+              `time` STRING,
+              `size` TINYINT)
+              ROW FORMAT DELIMITED FIELDS TERMINATED BY ","
+              LOCATION "hdfs:///var/lib/hadoop-hdfs/cache/hdfs/dfs/data/tips"
+              TBLPROPERTIES("skip.header.line.count" = "1");'
 
-### Parar todos containers
+### Execute o comando abaixo para enviar o arquivo tips.csv paradentro do HDFS
          hdfs dfs -put /tmp/tips.csv /var/lib/hadoop-hdfs/cache/hdfs/dfs/data/tips/ 
 
 ## Usuários e senhas
