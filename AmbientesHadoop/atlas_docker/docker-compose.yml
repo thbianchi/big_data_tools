@@ -31,16 +31,16 @@ services:
     depends_on:
       - zookeeper  
   
-  spark:
-    build: ./spark
-    command: /bin/bash
-    tty: true
-    volumes:
-      - ./spark/atlas-application.properties:/usr/local/spark/conf/atlas-application.properties
-      - ./spark/users-credentials.properties:/usr/local/spark/users-credentials.properties
-      - ./spark/spark-atlas-connector-assembly-0.1.0-SNAPSHOT.jar:/usr/local/spark/jars/spark-atlas-connector-assembly-0.1.0-SNAPSHOT.jar
-      - ./spark/spark-defaults.conf:/usr/local/spark/conf/spark-defaults.conf
-      - ./spark/teste.py:/tmp/teste.py
+ #spark:
+ #  build: ./spark
+ #  command: /bin/bash
+ #  tty: true
+ #  volumes:
+ #    - ./spark/atlas-application.properties:/usr/local/spark/conf/atlas-application.properties
+ #    - ./spark/users-credentials.properties:/usr/local/spark/users-credentials.properties
+ #    - ./spark/spark-atlas-connector-assembly-0.1.0-SNAPSHOT.jar:/usr/local/spark/jars/spark-atlas-connector-assembly-0.1.0-SNAPSHOT.jar
+ #    - ./spark/spark-defaults.conf:/usr/local/spark/conf/spark-defaults.conf
+ #    - ./spark/teste.py:/tmp/teste.py
 
   namenode:
     container_name: namenode
